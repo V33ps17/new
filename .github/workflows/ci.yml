@@ -39,5 +39,5 @@ jobs:
       - name: SCA scanning
         run: |
           docker pull hysnsec/safety
-          docker run --rm -v $(pwd):/src hysnsec/safety check -r juice-shop/package.json --json > oast-results.json
+          docker run --rm -v $(pwd):/src hysnsec/safety check -r bkimminich/juice-shop/package.json --json > sca-results.json
 
