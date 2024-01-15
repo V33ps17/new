@@ -34,3 +34,10 @@ jobs:
         run: |
           docker pull bkimminich/juice-shop
           docker run -d -p 3000:3000 bkimminich/juice-shop
+
+      # Runs SCA scan on 
+      - name: SCA scanning
+        run: |
+          docker pull hysnsec/safety
+          docker run --rm -v $(pwd):/src hysnsec/safety check -r juice-shop/package.json --json > oast-results.json
+
