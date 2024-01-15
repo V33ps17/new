@@ -30,7 +30,7 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Install Juice Shop application
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          docker pull bkimminich/juice-shop
+          docker run -d -p 3000:3000 bkimminich/juice-shop
