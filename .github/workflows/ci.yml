@@ -30,7 +30,7 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Install Juice Shop application
+      - name: Test Install Juice Shop application
         run: |
           docker pull bkimminich/juice-shop
           docker run -d -p 3000:3000 bkimminich/juice-shop
@@ -38,6 +38,7 @@ jobs:
       # Runs SCA scan on 
       - name: SCA scanning
         run: |
+          docker pull bkimminich/juice-shop
           docker pull hysnsec/safety
           docker run --rm -v $(pwd):/src hysnsec/safety check -r bkimminich/juice-shop/package.json --json > sca-results.json
 
